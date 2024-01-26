@@ -1,4 +1,5 @@
 ## s3-streamlogger
+Original:
 [![NPM version](https://badge.fury.io/js/s3-streamlogger.svg)](http://badge.fury.io/js/s3-streamlogger)
 
 
@@ -10,7 +11,7 @@ files produced by s3-streamlogger.
 
 ### Installation
 ```bash
-npm install --save s3-streamlogger
+npm install --save github:agencialiveseo/s3-streamlogger
 ```
 
 ### Basic Usage
@@ -36,6 +37,11 @@ const { S3StreamLogger } = require('s3-streamlogger');
 
 const s3_stream = new S3StreamLogger({
      bucket: "mys3bucket",
+     config: {
+          // you can pass your aws credentials instance here
+          credentials: new AWS.Credentials({... your credentials ... }),
+          region: 'sa-east-1'
+     }
 });
 
 const transport = new (winston.transports.Stream)({
